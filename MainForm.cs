@@ -21,7 +21,7 @@ namespace Rename
 
         private void btLoad_Click(object sender, EventArgs e)
         {
-            txtFile.Text = null;
+            txtFile.Text = "";
             OpenFileDialog file_open = new OpenFileDialog();
             file_open.ValidateNames = false;
             file_open.CheckFileExists = false;
