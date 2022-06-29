@@ -61,17 +61,35 @@ namespace Rename
                 txtSave.Text = directoryPath;
             }
         }
-
+        public string b = null;
+        public string a = null;
+        public string chap = null;
         private void btRun_Click(object sender, EventArgs e)
         {
-            string chap = cbChapter.Text;
-            DirectoryInfo d = new DirectoryInfo(txtFile.Text);
-            FileInfo[] infos = d.GetFiles();
-            string b = null;
-            foreach (FileInfo f in infos)
+            if (txtFile.Text != "")
             {
-                string name = Path.GetFileNameWithoutExtension(f.FullName);
-                string a = Regex.Match(name, @"\d+").Value;
+                chap = cbChapter.Text;
+                DirectoryInfo d = new DirectoryInfo(txtFile.Text);
+                FileInfo[] infos = d.GetFiles();
+                foreach (FileInfo f in infos)
+                {
+                    string name = Path.GetFileNameWithoutExtension(f.FullName);
+                    a = Regex.Match(name, @"\d+").Value;
+                    CheckRadio();
+                    if (a != "")
+                        File.Move(f.FullName, f.FullName.Replace(name, b));
+                }
+                MessageBox.Show("Finish rename");
+            }
+            else
+                MessageBox.Show("Please choose file");
+        }
+        public void CheckRadio()
+        {
+            string strF;
+            string strL;
+            if (rdDefaut.Checked == true)
+            {
                 if (chap == "<10")
                 {
                     b = a.ToString().PadLeft(2, '0');
@@ -92,11 +110,24 @@ namespace Rename
                 {
                     b = a.ToString().PadLeft(6, '0');
                 }
-                File.Move(f.FullName, f.FullName.Replace(name, b));   
             }
-            MessageBox.Show("Finish rename");
+            else if (rdStart.Checked == true)
+            {
+                strL = txtCharL.Text;
+                b = a.ToString().TrimStart(new Char[] { '0' }) + strL;
+            }
+            else if (rdLast.Checked == true)
+            {
+                strF = txtCharF.Text;
+                b = strF + a.ToString().TrimStart(new Char[] { '0' });
+            }
+            else
+            {
+                strF = txtCharF.Text;
+                strL = txtCharL.Text;
+                b = strF + a.ToString() + strL;
+            }    
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             cbChapter.Text = cbChapter.Items[2].ToString();
@@ -107,6 +138,8 @@ namespace Rename
 
         private void rdDefaut_CheckedChanged(object sender, EventArgs e)
         {
+            txtCharF.Text = null;
+            txtCharL.Text = null;
             if (rdStart.Checked == true)
             {
                 txtCharF.Enabled = false;
@@ -131,6 +164,8 @@ namespace Rename
 
         private void rdLast_CheckedChanged(object sender, EventArgs e)
         {
+            txtCharF.Text = null;
+            txtCharL.Text = null;
             if (rdStart.Checked == true)
             {
                 txtCharF.Enabled = false;
@@ -155,6 +190,8 @@ namespace Rename
 
         private void rdMid_CheckedChanged(object sender, EventArgs e)
         {
+            txtCharF.Text = null;
+            txtCharL.Text = null;
             if (rdStart.Checked == true)
             {
                 txtCharF.Enabled = false;
@@ -179,6 +216,8 @@ namespace Rename
 
         private void rdStart_CheckedChanged(object sender, EventArgs e)
         {
+            txtCharF.Text = null;
+            txtCharL.Text = null;
             if (rdStart.Checked == true)
             {
                 txtCharF.Enabled = false;

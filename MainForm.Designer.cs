@@ -91,9 +91,7 @@ namespace Rename
             // 
             // btSave
             // 
-            this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(75)))));
             this.btSave.ButtonImage = global::Rename.Properties.Resources.save_file;
             this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
@@ -161,9 +159,7 @@ namespace Rename
             // 
             // btLoad
             // 
-            this.btLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btLoad.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(70)))), ((int)(((byte)(75)))));
             this.btLoad.ButtonImage = global::Rename.Properties.Resources.data_storage;
             this.btLoad.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
@@ -187,9 +183,7 @@ namespace Rename
             // 
             // tblRun
             // 
-            this.tblRun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tblRun.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tblRun.ColumnCount = 1;
             this.tblRun.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblRun.Controls.Add(this.btRun, 0, 1);
@@ -198,8 +192,8 @@ namespace Rename
             this.tblRun.Margin = new System.Windows.Forms.Padding(0);
             this.tblRun.Name = "tblRun";
             this.tblRun.RowCount = 2;
-            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.19048F));
-            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
+            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.46032F));
+            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.53968F));
             this.tblRun.Size = new System.Drawing.Size(470, 315);
             this.tblRun.TabIndex = 6;
             // 
@@ -220,10 +214,10 @@ namespace Rename
             this.btRun.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.btRun.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
             this.btRun.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btRun.Location = new System.Drawing.Point(155, 249);
-            this.btRun.Margin = new System.Windows.Forms.Padding(155, 10, 155, 10);
+            this.btRun.Location = new System.Drawing.Point(155, 251);
+            this.btRun.Margin = new System.Windows.Forms.Padding(155, 7, 155, 7);
             this.btRun.Name = "btRun";
-            this.btRun.Size = new System.Drawing.Size(160, 56);
+            this.btRun.Size = new System.Drawing.Size(160, 57);
             this.btRun.TabIndex = 6;
             this.btRun.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(200)))), ((int)(((byte)(185)))));
             this.btRun.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -231,20 +225,18 @@ namespace Rename
             // 
             // tblOption
             // 
-            this.tblOption.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tblOption.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tblOption.ColumnCount = 1;
             this.tblOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblOption.Controls.Add(this.lbOption, 0, 0);
             this.tblOption.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tblOption.Location = new System.Drawing.Point(0, 0);
+            this.tblOption.Location = new System.Drawing.Point(0, 1);
             this.tblOption.Margin = new System.Windows.Forms.Padding(0);
             this.tblOption.Name = "tblOption";
             this.tblOption.RowCount = 2;
             this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 198F));
-            this.tblOption.Size = new System.Drawing.Size(470, 239);
+            this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tblOption.Size = new System.Drawing.Size(470, 241);
             this.tblOption.TabIndex = 7;
             // 
             // lbOption
@@ -255,7 +247,7 @@ namespace Rename
             this.lbOption.Location = new System.Drawing.Point(166, 3);
             this.lbOption.Margin = new System.Windows.Forms.Padding(3);
             this.lbOption.Name = "lbOption";
-            this.lbOption.Size = new System.Drawing.Size(138, 35);
+            this.lbOption.Size = new System.Drawing.Size(138, 39);
             this.lbOption.TabIndex = 0;
             this.lbOption.Text = "Rename Option";
             this.lbOption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,7 +266,7 @@ namespace Rename
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtCharL, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 41);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -282,7 +274,7 @@ namespace Rename
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 198);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 196);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label2
@@ -423,7 +415,7 @@ namespace Rename
             "<1000",
             "<10000",
             "<100000"});
-            this.cbChapter.Location = new System.Drawing.Point(185, 152);
+            this.cbChapter.Location = new System.Drawing.Point(185, 151);
             this.cbChapter.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
             this.cbChapter.Name = "cbChapter";
             this.cbChapter.Size = new System.Drawing.Size(279, 24);
@@ -434,7 +426,7 @@ namespace Rename
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 154);
+            this.label3.Location = new System.Drawing.Point(2, 153);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 19);
