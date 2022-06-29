@@ -42,25 +42,30 @@ namespace Rename
             this.tblOption = new System.Windows.Forms.TableLayoutPanel();
             this.lbOption = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtCharF = new System.Windows.Forms.TextBox();
+            this.cbChapter = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCharL = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.rdStart = new System.Windows.Forms.RadioButton();
-            this.rdMid = new System.Windows.Forms.RadioButton();
-            this.rdLast = new System.Windows.Forms.RadioButton();
             this.rdDefaut = new System.Windows.Forms.RadioButton();
-            this.cbChapter = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCharL = new System.Windows.Forms.TextBox();
+            this.rdLast = new System.Windows.Forms.RadioButton();
+            this.rdMid = new System.Windows.Forms.RadioButton();
+            this.rdStart = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.rdChar = new System.Windows.Forms.RadioButton();
+            this.rdNumber = new System.Windows.Forms.RadioButton();
             this.tblMain.SuspendLayout();
             this.tblRun.SuspendLayout();
             this.tblOption.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblMain
@@ -78,9 +83,10 @@ namespace Rename
             this.tblMain.Controls.Add(this.btLoad, 2, 0);
             this.tblMain.Controls.Add(this.tblRun, 1, 2);
             this.tblMain.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tblMain.Controls.Add(this.panel1, 2, 2);
             this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblMain.Location = new System.Drawing.Point(0, 0);
-            this.tblMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblMain.Margin = new System.Windows.Forms.Padding(2);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 3;
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
@@ -131,7 +137,7 @@ namespace Rename
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 91);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 19);
             this.label1.TabIndex = 1;
@@ -192,8 +198,8 @@ namespace Rename
             this.tblRun.Margin = new System.Windows.Forms.Padding(0);
             this.tblRun.Name = "tblRun";
             this.tblRun.RowCount = 2;
-            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.46032F));
-            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.53968F));
+            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.77778F));
+            this.tblRun.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tblRun.Size = new System.Drawing.Size(470, 315);
             this.tblRun.TabIndex = 6;
             // 
@@ -214,10 +220,10 @@ namespace Rename
             this.btRun.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.btRun.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
             this.btRun.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btRun.Location = new System.Drawing.Point(155, 251);
+            this.btRun.Location = new System.Drawing.Point(155, 252);
             this.btRun.Margin = new System.Windows.Forms.Padding(155, 7, 155, 7);
             this.btRun.Name = "btRun";
-            this.btRun.Size = new System.Drawing.Size(160, 57);
+            this.btRun.Size = new System.Drawing.Size(160, 56);
             this.btRun.TabIndex = 6;
             this.btRun.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(200)))), ((int)(((byte)(185)))));
             this.btRun.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -230,13 +236,13 @@ namespace Rename
             this.tblOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblOption.Controls.Add(this.lbOption, 0, 0);
             this.tblOption.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tblOption.Location = new System.Drawing.Point(0, 1);
+            this.tblOption.Location = new System.Drawing.Point(0, 0);
             this.tblOption.Margin = new System.Windows.Forms.Padding(0);
             this.tblOption.Name = "tblOption";
             this.tblOption.RowCount = 2;
             this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196F));
-            this.tblOption.Size = new System.Drawing.Size(470, 241);
+            this.tblOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
+            this.tblOption.Size = new System.Drawing.Size(470, 245);
             this.tblOption.TabIndex = 7;
             // 
             // lbOption
@@ -247,7 +253,7 @@ namespace Rename
             this.lbOption.Location = new System.Drawing.Point(166, 3);
             this.lbOption.Margin = new System.Windows.Forms.Padding(3);
             this.lbOption.Name = "lbOption";
-            this.lbOption.Size = new System.Drawing.Size(138, 39);
+            this.lbOption.Size = new System.Drawing.Size(138, 37);
             this.lbOption.TabIndex = 0;
             this.lbOption.Text = "Rename Option";
             this.lbOption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,7 +272,7 @@ namespace Rename
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtCharL, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 43);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -274,30 +280,81 @@ namespace Rename
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 196);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 202);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // txtCharF
+            // 
+            this.txtCharF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCharF.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCharF.Location = new System.Drawing.Point(185, 22);
+            this.txtCharF.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
+            this.txtCharF.Name = "txtCharF";
+            this.txtCharF.Size = new System.Drawing.Size(279, 23);
+            this.txtCharF.TabIndex = 3;
+            // 
+            // cbChapter
+            // 
+            this.cbChapter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbChapter.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.cbChapter.FormattingEnabled = true;
+            this.cbChapter.Items.AddRange(new object[] {
+            "<10",
+            "<100",
+            "<1000",
+            "<10000",
+            "<100000"});
+            this.cbChapter.Location = new System.Drawing.Point(185, 156);
+            this.cbChapter.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
+            this.cbChapter.Name = "cbChapter";
+            this.cbChapter.Size = new System.Drawing.Size(279, 24);
+            this.cbChapter.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(101, 23);
+            this.label2.Location = new System.Drawing.Point(101, 24);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ký tự đầu";
             // 
-            // txtCharF
+            // label5
             // 
-            this.txtCharF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharF.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCharF.Location = new System.Drawing.Point(185, 21);
-            this.txtCharF.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.txtCharF.Name = "txtCharF";
-            this.txtCharF.Size = new System.Drawing.Size(279, 23);
-            this.txtCharF.TabIndex = 3;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(98, 91);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 19);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Ký tự cuối";
+            // 
+            // txtCharL
+            // 
+            this.txtCharL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCharL.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCharL.Location = new System.Drawing.Point(185, 89);
+            this.txtCharL.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
+            this.txtCharL.Name = "txtCharL";
+            this.txtCharL.Size = new System.Drawing.Size(279, 23);
+            this.txtCharL.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(2, 158);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Số lượng file cần rename";
             // 
             // tableLayoutPanel2
             // 
@@ -325,7 +382,7 @@ namespace Rename
             this.label4.Location = new System.Drawing.Point(7, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 37);
+            this.label4.Size = new System.Drawing.Size(158, 36);
             this.label4.TabIndex = 1;
             this.label4.Text = "Chọn cách đặt tên";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,7 +398,7 @@ namespace Rename
             this.tableLayoutPanel3.Controls.Add(this.rdLast, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.rdMid, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.rdStart, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 43);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 42);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -349,8 +406,47 @@ namespace Rename
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99937F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99937F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00188F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(172, 272);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(172, 273);
             this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // rdDefaut
+            // 
+            this.rdDefaut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdDefaut.AutoSize = true;
+            this.rdDefaut.Location = new System.Drawing.Point(51, 230);
+            this.rdDefaut.Name = "rdDefaut";
+            this.rdDefaut.Size = new System.Drawing.Size(70, 17);
+            this.rdDefaut.TabIndex = 3;
+            this.rdDefaut.TabStop = true;
+            this.rdDefaut.Text = "Mặc định";
+            this.rdDefaut.UseVisualStyleBackColor = true;
+            this.rdDefaut.CheckedChanged += new System.EventHandler(this.rdDefaut_CheckedChanged);
+            // 
+            // rdLast
+            // 
+            this.rdLast.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdLast.AutoSize = true;
+            this.rdLast.Location = new System.Drawing.Point(38, 161);
+            this.rdLast.Name = "rdLast";
+            this.rdLast.Size = new System.Drawing.Size(96, 17);
+            this.rdLast.TabIndex = 2;
+            this.rdLast.TabStop = true;
+            this.rdLast.Text = "Chèn số ở cuối";
+            this.rdLast.UseVisualStyleBackColor = true;
+            this.rdLast.CheckedChanged += new System.EventHandler(this.rdLast_CheckedChanged);
+            // 
+            // rdMid
+            // 
+            this.rdMid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdMid.AutoSize = true;
+            this.rdMid.Location = new System.Drawing.Point(38, 93);
+            this.rdMid.Name = "rdMid";
+            this.rdMid.Size = new System.Drawing.Size(96, 17);
+            this.rdMid.TabIndex = 1;
+            this.rdMid.TabStop = true;
+            this.rdMid.Text = "Chèn số ở giữa";
+            this.rdMid.UseVisualStyleBackColor = true;
+            this.rdMid.CheckedChanged += new System.EventHandler(this.rdMid_CheckedChanged);
             // 
             // rdStart
             // 
@@ -365,95 +461,56 @@ namespace Rename
             this.rdStart.UseVisualStyleBackColor = true;
             this.rdStart.CheckedChanged += new System.EventHandler(this.rdStart_CheckedChanged);
             // 
-            // rdMid
+            // panel1
             // 
-            this.rdMid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdMid.AutoSize = true;
-            this.rdMid.Location = new System.Drawing.Point(38, 92);
-            this.rdMid.Name = "rdMid";
-            this.rdMid.Size = new System.Drawing.Size(96, 17);
-            this.rdMid.TabIndex = 1;
-            this.rdMid.TabStop = true;
-            this.rdMid.Text = "Chèn số ở giữa";
-            this.rdMid.UseVisualStyleBackColor = true;
-            this.rdMid.CheckedChanged += new System.EventHandler(this.rdMid_CheckedChanged);
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.rdChar);
+            this.panel1.Controls.Add(this.rdNumber);
+            this.panel1.Location = new System.Drawing.Point(642, 134);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(170, 315);
+            this.panel1.TabIndex = 8;
             // 
-            // rdLast
+            // label6
             // 
-            this.rdLast.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdLast.AutoSize = true;
-            this.rdLast.Location = new System.Drawing.Point(38, 159);
-            this.rdLast.Name = "rdLast";
-            this.rdLast.Size = new System.Drawing.Size(96, 17);
-            this.rdLast.TabIndex = 2;
-            this.rdLast.TabStop = true;
-            this.rdLast.Text = "Chèn số ở cuối";
-            this.rdLast.UseVisualStyleBackColor = true;
-            this.rdLast.CheckedChanged += new System.EventHandler(this.rdLast_CheckedChanged);
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(31, 18);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 44);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Chọn loại file\r\ncần rename\r\n";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rdDefaut
+            // rdChar
             // 
-            this.rdDefaut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdDefaut.AutoSize = true;
-            this.rdDefaut.Location = new System.Drawing.Point(51, 228);
-            this.rdDefaut.Name = "rdDefaut";
-            this.rdDefaut.Size = new System.Drawing.Size(70, 17);
-            this.rdDefaut.TabIndex = 3;
-            this.rdDefaut.TabStop = true;
-            this.rdDefaut.Text = "Mặc định";
-            this.rdDefaut.UseVisualStyleBackColor = true;
-            this.rdDefaut.CheckedChanged += new System.EventHandler(this.rdDefaut_CheckedChanged);
+            this.rdChar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdChar.AutoSize = true;
+            this.rdChar.Location = new System.Drawing.Point(35, 135);
+            this.rdChar.Name = "rdChar";
+            this.rdChar.Size = new System.Drawing.Size(113, 30);
+            this.rdChar.TabIndex = 1;
+            this.rdChar.TabStop = true;
+            this.rdChar.Text = "Tên file trong \r\nfolder không có số";
+            this.rdChar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdChar.UseVisualStyleBackColor = true;
             // 
-            // cbChapter
+            // rdNumber
             // 
-            this.cbChapter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbChapter.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            this.cbChapter.FormattingEnabled = true;
-            this.cbChapter.Items.AddRange(new object[] {
-            "<10",
-            "<100",
-            "<1000",
-            "<10000",
-            "<100000"});
-            this.cbChapter.Location = new System.Drawing.Point(185, 151);
-            this.cbChapter.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.cbChapter.Name = "cbChapter";
-            this.cbChapter.Size = new System.Drawing.Size(279, 24);
-            this.cbChapter.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Số lượng file cần rename";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(98, 88);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 19);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Ký tự cuối";
-            // 
-            // txtCharL
-            // 
-            this.txtCharL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCharL.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCharL.Location = new System.Drawing.Point(185, 86);
-            this.txtCharL.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.txtCharL.Name = "txtCharL";
-            this.txtCharL.Size = new System.Drawing.Size(279, 23);
-            this.txtCharL.TabIndex = 6;
+            this.rdNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdNumber.AutoSize = true;
+            this.rdNumber.Location = new System.Drawing.Point(35, 71);
+            this.rdNumber.Name = "rdNumber";
+            this.rdNumber.Size = new System.Drawing.Size(90, 30);
+            this.rdNumber.TabIndex = 0;
+            this.rdNumber.TabStop = true;
+            this.rdNumber.Text = "Tên file trong \r\nfolder có số";
+            this.rdNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdNumber.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -462,7 +519,7 @@ namespace Rename
             this.ClientSize = new System.Drawing.Size(812, 449);
             this.Controls.Add(this.tblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rename";
@@ -478,6 +535,8 @@ namespace Rename
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -509,6 +568,10 @@ namespace Rename
         private System.Windows.Forms.ComboBox cbChapter;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCharL;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rdChar;
+        private System.Windows.Forms.RadioButton rdNumber;
+        private System.Windows.Forms.Label label6;
     }
 }
 

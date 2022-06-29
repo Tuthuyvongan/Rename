@@ -37,7 +37,7 @@ namespace Rename
                 string filePath = file_open.FileName;
                 string directoryPath = Path.GetDirectoryName(filePath);
                 txtFile.Text = directoryPath;
-                if(txtSave.Text == null || txtSave.Text == "")
+                if(txtSave.Text == "")
                     txtSave.Text = directoryPath + "\\" + "Save";
             }    
         }
@@ -61,9 +61,12 @@ namespace Rename
                 txtSave.Text = directoryPath;
             }
         }
-        public string b = null;
         public string a = null;
+        public string b = null;
+        public string c = null;
         public string chap = null;
+        public int temp;
+        public int i = 1;
         private void btRun_Click(object sender, EventArgs e)
         {
             if (txtFile.Text != "")
@@ -71,13 +74,25 @@ namespace Rename
                 chap = cbChapter.Text;
                 DirectoryInfo d = new DirectoryInfo(txtFile.Text);
                 FileInfo[] infos = d.GetFiles();
+                temp = infos.Count();
                 foreach (FileInfo f in infos)
                 {
                     string name = Path.GetFileNameWithoutExtension(f.FullName);
                     a = Regex.Match(name, @"\d+").Value;
                     CheckRadio();
-                    if (a != "")
+
+                    if (a != "" && rdNumber.Checked == true)
                         File.Move(f.FullName, f.FullName.Replace(name, b));
+                    else if (rdChar.Checked == true)
+                    {
+                        File.Move(f.FullName, f.FullName.Replace(name, c));
+                        i++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("File không có ký tự số vui lòng chọn Không có số");
+                        return;
+                    }
                 }
                 MessageBox.Show("Finish rename");
             }
@@ -88,52 +103,79 @@ namespace Rename
         {
             string strF;
             string strL;
-            if (rdDefaut.Checked == true)
+            if (rdNumber.Checked == true)
             {
-                if (chap == "<10")
+                if (rdDefaut.Checked == true)
                 {
-                    b = a.ToString().PadLeft(2, '0');
+                    if (chap == "<10")
+                    {
+                        b = a.ToString().PadLeft(2, '0');
+                    }
+                    else if (chap == "<100")
+                    {
+                        b = a.ToString().PadLeft(3, '0');
+                    }
+                    else if (chap == "<1000")
+                    {
+                        b = a.ToString().PadLeft(4, '0');
+                    }
+                    else if (chap == "<10000")
+                    {
+                        b = a.ToString().PadLeft(5, '0');
+                    }
+                    else if (chap == "<100000")
+                    {
+                        b = a.ToString().PadLeft(6, '0');
+                    }
                 }
-                else if (chap == "<100")
+                else if (rdStart.Checked == true)
                 {
-                    b = a.ToString().PadLeft(3, '0');
+                    strL = txtCharL.Text;
+                    b = a.ToString().TrimStart(new Char[] { '0' }) + strL;
                 }
-                else if (chap == "<1000")
+                else if (rdLast.Checked == true)
                 {
-                    b = a.ToString().PadLeft(4, '0');
+                    strF = txtCharF.Text;
+                    b = strF + a.ToString().TrimStart(new Char[] { '0' });
                 }
-                else if (chap == "<10000")
+                else
                 {
-                    b = a.ToString().PadLeft(5, '0');
+                    strF = txtCharF.Text;
+                    strL = txtCharL.Text;
+                    b = strF + a.ToString() + strL;
                 }
-                else if (chap == "<100000")
-                {
-                    b = a.ToString().PadLeft(6, '0');
-                }
-            }
-            else if (rdStart.Checked == true)
-            {
-                strL = txtCharL.Text;
-                b = a.ToString().TrimStart(new Char[] { '0' }) + strL;
-            }
-            else if (rdLast.Checked == true)
-            {
-                strF = txtCharF.Text;
-                b = strF + a.ToString().TrimStart(new Char[] { '0' });
             }
             else
             {
-                strF = txtCharF.Text;
-                strL = txtCharL.Text;
-                b = strF + a.ToString() + strL;
-            }    
+                if (rdDefaut.Checked == true)
+                {
+                    c = i.ToString();
+                }
+                else if (rdStart.Checked == true)
+                {
+                    strL = txtCharL.Text;
+                    c = i.ToString() + strL;
+                }
+                else if (rdLast.Checked == true)
+                {
+                    strF = txtCharF.Text;
+                    c = strF + i.ToString();
+                }
+                else
+                {
+                    strF = txtCharF.Text;
+                    strL = txtCharL.Text;
+                    c = strF + i.ToString() + strL;
+                }
+            } 
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
             cbChapter.Text = cbChapter.Items[2].ToString();
             rdDefaut.Checked = true;
+            rdNumber.Checked = true;
             txtCharF.Enabled = false;
-            txtCharL.Enabled = false;
+            txtCharL.Enabled = false; 
         }
 
         private void rdDefaut_CheckedChanged(object sender, EventArgs e)
