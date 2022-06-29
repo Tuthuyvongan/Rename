@@ -37,8 +37,7 @@ namespace Rename
                 string filePath = file_open.FileName;
                 string directoryPath = Path.GetDirectoryName(filePath);
                 txtFile.Text = directoryPath;
-                if(txtSave.Text == "")
-                    txtSave.Text = directoryPath + "\\" + "Save";
+                txtSave.Text = directoryPath;
             }    
         }
 
@@ -67,32 +66,76 @@ namespace Rename
         public string chap = null;
         public int temp;
         public int i = 1;
+        public int j = 1;
+        public int k = 1;
         private void btRun_Click(object sender, EventArgs e)
         {
+            i = 1;
+            j = 1;
+            k = 1;
             if (txtFile.Text != "")
             {
                 chap = cbChapter.Text;
                 DirectoryInfo d = new DirectoryInfo(txtFile.Text);
                 FileInfo[] infos = d.GetFiles();
                 temp = infos.Count();
+                if (temp <= 0)
+                {
+                    MessageBox.Show("There are no files in the directory");
+                    return;
+                }
                 foreach (FileInfo f in infos)
                 {
                     string name = Path.GetFileNameWithoutExtension(f.FullName);
                     a = Regex.Match(name, @"\d+").Value;
                     CheckRadio();
-
-                    if (a != "" && rdNumber.Checked == true)
-                        File.Move(f.FullName, f.FullName.Replace(name, b));
-                    if (rdChar.Checked == true)
+                    if (rdAll.Checked == true)
                     {
+                        while (File.Exists(f.FullName.Replace(name, c)))
+                        {
+                            i++;
+                            CheckRadio();
+                        }
                         File.Move(f.FullName, f.FullName.Replace(name, c));
                         i++;
                     }
                     else
                     {
-                        MessageBox.Show("File không có ký tự số vui lòng chọn Không có số");
-                        return;
+                        if (a == "" && rdChar.Checked == true)
+                        {
+                            while (File.Exists(f.FullName.Replace(name, c)))
+                            {
+                                i++;
+                                CheckRadio();
+                            }
+                            File.Move(f.FullName, f.FullName.Replace(name, c));
+                            i++;
+                        }
+                        else
+                        {
+                            k++;
+                            if (k == temp && rdChar.Checked == true)
+                            {
+                                MessageBox.Show("Directory without files with only letters in in name");
+                                return;
+                            }
+                        }
+                        
+                        if (a != "" && rdNumber.Checked == true)
+                        {
+                            File.Move(f.FullName, f.FullName.Replace(name, b));
+                        }
+                        else
+                        {
+                            j++;
+                            if (j == temp && rdNumber.Checked == true)
+                            {
+                                MessageBox.Show("Directory without files with number in in name");
+                                return;
+                            }
+                        }
                     }
+                    
                 }
                 MessageBox.Show("Finish rename");
             }
@@ -126,6 +169,10 @@ namespace Rename
                     else if (chap == "<100000")
                     {
                         b = a.ToString().PadLeft(6, '0');
+                    }
+                    else
+                    {
+                        b = a.ToString().TrimStart(new Char[] { '0' });
                     }
                 }
                 else if (rdStart.Checked == true)
@@ -171,7 +218,6 @@ namespace Rename
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            cbChapter.Text = cbChapter.Items[2].ToString();
             rdDefaut.Checked = true;
             rdNumber.Checked = true;
             txtCharF.Enabled = false;
@@ -201,7 +247,17 @@ namespace Rename
             {
                 txtCharF.Enabled = false;
                 txtCharL.Enabled = false;
-            }    
+            }
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
+            }
         }
 
         private void rdLast_CheckedChanged(object sender, EventArgs e)
@@ -227,6 +283,16 @@ namespace Rename
             {
                 txtCharF.Enabled = false;
                 txtCharL.Enabled = false;
+            }
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
             }
         }
 
@@ -254,6 +320,16 @@ namespace Rename
                 txtCharF.Enabled = false;
                 txtCharL.Enabled = false;
             }
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
+            }
         }
 
         private void rdStart_CheckedChanged(object sender, EventArgs e)
@@ -279,6 +355,58 @@ namespace Rename
             {
                 txtCharF.Enabled = false;
                 txtCharL.Enabled = false;
+            }
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
+            }
+        }
+
+        private void rdAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
+            }
+        }
+
+        private void rdChar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
+            }
+        }
+
+        private void rdNumber_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNumber.Checked == true && rdDefaut.Checked == true)
+            {
+                cbChapter.Text = cbChapter.Items[3].ToString();
+                cbChapter.Enabled = true;
+            }
+            else
+            {
+                cbChapter.Enabled = false;
+                cbChapter.Text = cbChapter.Items[0].ToString();
             }
         }
     }
