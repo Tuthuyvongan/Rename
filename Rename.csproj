@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="exchange.ico" />
+    <None Include="Resources\books.png" />
     <None Include="Resources\save-file.png" />
     <None Include="Resources\data-storage.png" />
   </ItemGroup>
