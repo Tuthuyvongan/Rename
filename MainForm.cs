@@ -83,7 +83,7 @@ namespace Rename
 
                     if (a != "" && rdNumber.Checked == true)
                         File.Move(f.FullName, f.FullName.Replace(name, b));
-                    else if (rdChar.Checked == true)
+                    if (rdChar.Checked == true)
                     {
                         File.Move(f.FullName, f.FullName.Replace(name, c));
                         i++;
