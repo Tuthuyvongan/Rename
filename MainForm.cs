@@ -20,6 +20,7 @@ namespace Rename
         }
         public string directoryPath;
         public string directPath;
+        public int index;
         private void btLoad_Click(object sender, EventArgs e)
         {
             txtFile.Text = "";
@@ -29,12 +30,13 @@ namespace Rename
             file_open.CheckPathExists = true;
             file_open.FileName = "Select Folder";
             //Setup open file dialog before displaying it
-            file_open.Filter = "All files (*.*)|*.*";
+            file_open.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             //Chon dang file mac dinh hien thi dau tien trong combo box neu mo nhieu loai file
             file_open.FilterIndex = 1;
             file_open.Title = "Choose file";
             if (DialogResult.OK == file_open.ShowDialog())
             {
+                index = file_open.FilterIndex;
                 string filePath = file_open.FileName;
                 directoryPath = Path.GetDirectoryName(filePath);
                 txtFile.Text = directoryPath;
@@ -244,7 +246,9 @@ namespace Rename
             rdDefaut.Checked = true;
             rdNumber.Checked = true;
             txtCharF.Enabled = false;
-            txtCharL.Enabled = false; 
+            txtCharL.Enabled = false;
+            txtSave.Enabled = false;
+            btSave.Visible = false;
         }
 
         private void rdDefaut_CheckedChanged(object sender, EventArgs e)
@@ -435,8 +439,18 @@ namespace Rename
 
         private void txtFile_TextChanged(object sender, EventArgs e)
         {
-            txtSave.Text = txtFile.Text + "\\" + "Save";
-            directPath = txtSave.Text;
+            if (index == 1)
+            {
+                txtSave.Text = txtFile.Text + "\\" + "Save";
+                directPath = txtSave.Text;
+                btSave.Visible = true;
+            }    
+            else
+            {
+                txtSave.Text = txtFile.Text;
+                directPath = txtSave.Text;
+                btSave.Visible = false;
+            }    
         }
     }
 }
