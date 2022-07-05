@@ -56,10 +56,10 @@ namespace Rename
             this.rdMid = new System.Windows.Forms.RadioButton();
             this.rdStart = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rdAll = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.rdChar = new System.Windows.Forms.RadioButton();
             this.rdNumber = new System.Windows.Forms.RadioButton();
-            this.rdAll = new System.Windows.Forms.RadioButton();
             this.tblMain.SuspendLayout();
             this.tblRun.SuspendLayout();
             this.tblOption.SuspendLayout();
@@ -87,7 +87,7 @@ namespace Rename
             this.tblMain.Controls.Add(this.panel1, 2, 2);
             this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblMain.Location = new System.Drawing.Point(0, 0);
-            this.tblMain.Margin = new System.Windows.Forms.Padding(2);
+            this.tblMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 3;
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
@@ -137,12 +137,12 @@ namespace Rename
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 91);
-            this.label1.Margin = new System.Windows.Forms.Padding(2);
+            this.label1.Location = new System.Drawing.Point(15, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 19);
+            this.label1.Size = new System.Drawing.Size(155, 38);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Save folder path";
+            this.label1.Text = "Save folder path\r\n(Must be emty folder)";
             // 
             // txtFile
             // 
@@ -153,6 +153,7 @@ namespace Rename
             this.txtFile.Name = "txtFile";
             this.txtFile.Size = new System.Drawing.Size(462, 23);
             this.txtFile.TabIndex = 2;
+            this.txtFile.TextChanged += new System.EventHandler(this.txtFile_TextChanged);
             // 
             // txtSave
             // 
@@ -221,10 +222,10 @@ namespace Rename
             this.btRun.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
             this.btRun.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(215)))));
             this.btRun.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btRun.Location = new System.Drawing.Point(155, 254);
+            this.btRun.Location = new System.Drawing.Point(155, 255);
             this.btRun.Margin = new System.Windows.Forms.Padding(155, 7, 155, 7);
             this.btRun.Name = "btRun";
-            this.btRun.Size = new System.Drawing.Size(160, 54);
+            this.btRun.Size = new System.Drawing.Size(160, 53);
             this.btRun.TabIndex = 6;
             this.btRun.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(200)))), ((int)(((byte)(185)))));
             this.btRun.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -252,7 +253,7 @@ namespace Rename
             this.lbOption.AutoSize = true;
             this.lbOption.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOption.Location = new System.Drawing.Point(172, 3);
-            this.lbOption.Margin = new System.Windows.Forms.Padding(3);
+            this.lbOption.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.lbOption.Name = "lbOption";
             this.lbOption.Size = new System.Drawing.Size(126, 35);
             this.lbOption.TabIndex = 0;
@@ -382,7 +383,7 @@ namespace Rename
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 3);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 36);
             this.label4.TabIndex = 1;
@@ -476,13 +477,26 @@ namespace Rename
             this.panel1.Size = new System.Drawing.Size(170, 315);
             this.panel1.TabIndex = 8;
             // 
+            // rdAll
+            // 
+            this.rdAll.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rdAll.AutoSize = true;
+            this.rdAll.Location = new System.Drawing.Point(20, 203);
+            this.rdAll.Name = "rdAll";
+            this.rdAll.Size = new System.Drawing.Size(99, 17);
+            this.rdAll.TabIndex = 3;
+            this.rdAll.TabStop = true;
+            this.rdAll.Text = "Rename all files";
+            this.rdAll.UseVisualStyleBackColor = true;
+            this.rdAll.CheckedChanged += new System.EventHandler(this.rdAll_CheckedChanged);
+            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(16, 18);
-            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 44);
             this.label6.TabIndex = 2;
@@ -515,19 +529,6 @@ namespace Rename
             this.rdNumber.UseVisualStyleBackColor = true;
             this.rdNumber.CheckedChanged += new System.EventHandler(this.rdNumber_CheckedChanged);
             // 
-            // rdAll
-            // 
-            this.rdAll.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rdAll.AutoSize = true;
-            this.rdAll.Location = new System.Drawing.Point(20, 203);
-            this.rdAll.Name = "rdAll";
-            this.rdAll.Size = new System.Drawing.Size(99, 17);
-            this.rdAll.TabIndex = 3;
-            this.rdAll.TabStop = true;
-            this.rdAll.Text = "Rename all files";
-            this.rdAll.UseVisualStyleBackColor = true;
-            this.rdAll.CheckedChanged += new System.EventHandler(this.rdAll_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +536,7 @@ namespace Rename
             this.ClientSize = new System.Drawing.Size(812, 449);
             this.Controls.Add(this.tblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rename";

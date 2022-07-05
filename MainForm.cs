@@ -18,7 +18,8 @@ namespace Rename
         {
             InitializeComponent();
         }
-
+        public string directoryPath;
+        public string directPath;
         private void btLoad_Click(object sender, EventArgs e)
         {
             txtFile.Text = "";
@@ -35,12 +36,11 @@ namespace Rename
             if (DialogResult.OK == file_open.ShowDialog())
             {
                 string filePath = file_open.FileName;
-                string directoryPath = Path.GetDirectoryName(filePath);
+                directoryPath = Path.GetDirectoryName(filePath);
                 txtFile.Text = directoryPath;
-                txtSave.Text = directoryPath;
             }    
         }
-
+        
         private void btSave_Click(object sender, EventArgs e)
         {
             OpenFileDialog file_open = new OpenFileDialog();
@@ -56,14 +56,15 @@ namespace Rename
             if (DialogResult.OK == file_open.ShowDialog())
             {
                 string filePath = file_open.FileName;
-                string directoryPath = Path.GetDirectoryName(filePath);
-                txtSave.Text = directoryPath;
+                directPath = Path.GetDirectoryName(filePath);
+                txtSave.Text = directPath;
             }
         }
         public string a = null;
         public string b = null;
         public string c = null;
         public string chap = null;
+        public string NewFolder = null;
         public int temp;
         public int i = 1;
         public int j = 1;
@@ -75,8 +76,14 @@ namespace Rename
             k = 1;
             if (txtFile.Text != "")
             {
+                if (Directory.Exists(directPath))
+                {
+                    Directory.Delete(directPath, true);
+                }
+                Directory.CreateDirectory(directPath);
+                CopyFile();
                 chap = cbChapter.Text;
-                DirectoryInfo d = new DirectoryInfo(txtFile.Text);
+                DirectoryInfo d = new DirectoryInfo(directPath);
                 FileInfo[] infos = d.GetFiles();
                 temp = infos.Count();
                 if (temp <= 0)
@@ -189,7 +196,7 @@ namespace Rename
                 {
                     strF = txtCharF.Text;
                     strL = txtCharL.Text;
-                    b = strF + a.ToString() + strL;
+                    b = strF + a.ToString().TrimStart(new Char[] { '0' }) + strL;
                 }
             }
             else
@@ -212,9 +219,25 @@ namespace Rename
                 {
                     strF = txtCharF.Text;
                     strL = txtCharL.Text;
-                    c = strF + i.ToString() + strL;
+                    c = strF + i.ToString().TrimStart(new Char[] { '0' }) + strL;
                 }
             } 
+        }
+        private void CopyFile()
+        {
+            if (Directory.Exists(directoryPath))
+            {
+                string[] files = Directory.GetFiles(directoryPath);
+
+                // Copy the files and overwrite destination files if they already exist.
+                foreach (string s in files)
+                {
+                    // Use static Path methods to extract only the file name from the path.
+                    string fileName = Path.GetFileName(s);
+                    string destFile = Path.Combine(directPath, fileName);
+                    File.Copy(s, destFile, true);
+                }
+            }
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -408,6 +431,12 @@ namespace Rename
                 cbChapter.Enabled = false;
                 cbChapter.Text = cbChapter.Items[0].ToString();
             }
+        }
+
+        private void txtFile_TextChanged(object sender, EventArgs e)
+        {
+            txtSave.Text = txtFile.Text + "\\" + "Save";
+            directPath = txtSave.Text;
         }
     }
 }
